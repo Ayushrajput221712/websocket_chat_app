@@ -12,11 +12,12 @@ const __dirname= dirname(fileURLToPath(import.meta.url));
 const app = express();
 const server = createServer(app);
 const socketio = new Server(server);
-
+app.use(express.static(join(__dirname,'public')));
 
 //--------------------------------------------------------
 app.get('/', (req, res) => {
-    res.sendFile(join(__dirname,'public','index.html'))
+    //i will seperate the js and css file from the index.html and add express.static here 
+    res.sendFile((join(__dirname,'public',"index.html")))
 });
 
 socketio.on("connection",(socket)=>{
