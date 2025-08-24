@@ -132,6 +132,9 @@ body {
         width: 100%;
         box-sizing: border-box;
     }
+    .chat-form{
+        margin-bottom: 4rem;
+    }
 }
 @media (max-width: 400px) {
     .chat-container {
