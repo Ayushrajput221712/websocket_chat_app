@@ -133,7 +133,7 @@ body {
         box-sizing: border-box;
     }
     .chat-form{
-        margin-bottom: 4rem;
+        margin-bottom: 8rem;
     }
 }
 @media (max-width: 400px) {
