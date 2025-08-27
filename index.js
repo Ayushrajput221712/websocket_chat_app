@@ -1,6 +1,9 @@
 import express from 'express';
+
+//---------this is env-----------
 import dotenv from 'dotenv'
 dotenv.config()
+//--------------------------------------
 const PORT = process.env.PORT || 3000
 import { createServer } from 'node:http';
 import { fileURLToPath } from 'node:url';
@@ -14,7 +17,7 @@ const server = createServer(app);
 const socketio = new Server(server);
 app.use(express.static(join(__dirname,'public')));
 
-//--------------------------------------------------------
+//------------------------------------------------------------------------
 app.get('/', (req, res) => {
     //i will seperate the js and css file from the index.html and add express.static here 
     res.sendFile((join(__dirname,'public',"index.html")))
@@ -22,7 +25,7 @@ app.get('/', (req, res) => {
 
 socketio.on("connection",(socket)=>{
     socket.on("message",(message)=>{
-    socketio.emit("sendMessage",{message,id:socket.id})
+    socketio.emit("sendMessage",{message,id:socket.id});
     })
 })
 
